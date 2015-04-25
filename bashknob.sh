@@ -5,12 +5,12 @@ if [[ -z $1 ]] || [[ -z $2 ]]
        exit
 fi
 
+#Support up to 255 sound cards lol
 for i in $(seq 0 255)
 do
     if [[ -n $(amixer info -c $i | grep -i $1) ]]
         then
-            echo $i
-            echo "amixer -c $i $2"
+            #echo "amixer -c $i $2"
             amixer -c $i $2
             break
     fi 
